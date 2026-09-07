@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
 
     Animator anim;
     AudioSource playerAudioSource;
     public float speed = 10.0f;
-    public float health = 100.0f;
+    public float maxHealth = 100.0f;
+    private float health = 100.0f;
     public GameObject MuzzleFlashEffect;
     public GameObject ImpactEffect;
     public GameObject raystart;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
         HealthBarHeight = healthBar.GetComponent<RectTransform>().sizeDelta.y;
     }
 
-    void Die()
+    public void Die()
     {
         healthBar.SetActive(false);
         MuzzleFlashEffect.SetActive(false);
@@ -126,5 +127,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public void TakeDamage()
+    {
+        throw new System.NotImplementedException();
+    }
 }
