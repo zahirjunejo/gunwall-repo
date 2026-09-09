@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1996704744117822300}
   - component: {fileID: 6597878878391374747}
   - component: {fileID: 6391845472760097868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Minion
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d2914633ad3204bad00ad2814cf81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 100
   DeathExplosion: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
   HitFlash: {fileID: 9040172625131418152}
 --- !u!114 &6391845472760097868
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 5707721903584261992}
   - component: {fileID: 2108060765501926936}
   - component: {fileID: 367906090523687655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +297,10 @@ PrefabInstance:
     - target: {fileID: 1650463087692150, guid: beb24022f1709b04e81298f9a1fbeca6, type: 3}
       propertyPath: m_Name
       value: Robot_Scout_Rockie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650463087692150, guid: beb24022f1709b04e81298f9a1fbeca6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4867624584437994, guid: beb24022f1709b04e81298f9a1fbeca6, type: 3}
       propertyPath: m_LocalPosition.x

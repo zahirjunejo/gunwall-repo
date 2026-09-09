@@ -9,15 +9,22 @@ public class PlayerController : MonoBehaviour, IDamageable
     Animator anim;
     AudioSource playerAudioSource;
     public float speed = 10.0f;
-    public float maxHealth = 100.0f;
-    private float health = 100.0f;
+    [SerializeField] private float maxHealth = 100.0f;
+    private float health;
     public GameObject MuzzleFlashEffect;
     public GameObject ImpactEffect;
     public GameObject raystart;
     public GameObject playerBody;
     public GameObject gameManager;
     public GameObject healthBar;
-    float HealthBarWidth, HealthBarHeight;
+    private float HealthBarWidth, HealthBarHeight;
+
+    public float CurrentHealth => health;
+
+    public void Awake()
+    {
+        health = maxHealth;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,18 +46,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         anim.SetTrigger("dead");
         anim.SetBool("run", false);
-    }
-
-    public void ReduceHealth(float damage) {
-        health -= damage;
-
-        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / 100 * HealthBarWidth, HealthBarHeight);
-
-        if (health <= 0) {
-            Die();
-            gameManager.GetComponent<GameManager>().GameOver();
-        }
-
     }
 
     // Update is called once per frame
@@ -107,28 +102,27 @@ public class PlayerController : MonoBehaviour, IDamageable
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
 
-                //Instantiate(ImpactEffect, hit.point, ImpactEffect.transform.rotation);
                 Instantiate(ImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-
-                if (hit.rigidbody != null)
+                if (hit.collider.gameObject.TryGetComponent<IDamageable>(out var hittarget))
                 {
-
-                    if (hit.rigidbody.gameObject.CompareTag("Minion") || hit.rigidbody.gameObject.CompareTag("Boss"))
-                    {
-
-                        hit.rigidbody.gameObject.BroadcastMessage("ReduceHealth");
-
-                    }
+                    hittarget.TakeDamage(5);
                 }
 
             }
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
-        throw new System.NotImplementedException();
+        health = Mathf.Max(0, health - damage);
+
+        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / 100 * HealthBarWidth, HealthBarHeight);
+        if (health <= 0)
+        {
+            Die();
+            gameManager.GetComponent<GameManager>().GameOver();
+        }
     }
 }

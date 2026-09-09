@@ -13,12 +13,12 @@ public class MoveBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.TryGetComponent<IDamageable>(out var hitTarget))
         {
-            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
-            playerController.ReduceHealth(50);
+            hitTarget.TakeDamage(50);
             Destroy(gameObject);
         }
+
     }
 
 

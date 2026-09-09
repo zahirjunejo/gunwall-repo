@@ -339,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 86562240}
   - component: {fileID: 86562241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 214851059}
   - component: {fileID: 214851061}
   - component: {fileID: 214851060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 350543461}
   - component: {fileID: 350543464}
   - component: {fileID: 350543463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 585217633}
   - component: {fileID: 585217632}
   - component: {fileID: 585217629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 592298882}
   - component: {fileID: 592298881}
   - component: {fileID: 592298885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 699017159}
   - component: {fileID: 699017158}
   - component: {fileID: 699017157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1155,7 +1155,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1789,7 +1789,7 @@ GameObject:
   - component: {fileID: 1258494762}
   - component: {fileID: 1258494763}
   - component: {fileID: 1258494764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339aa8f6e9139d64d85889d9b0bfadb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 2000
   DeathExplosion: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   HitFlash: {fileID: 699017156}
   HealthBar: {fileID: 11752923}
@@ -3304,6 +3304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7374588696722208523, guid: 778b92243dec02645b44445a1af435fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8343466130680499297, guid: 778b92243dec02645b44445a1af435fd, type: 3}
       propertyPath: healthBar
       value: 
@@ -3328,7 +3332,7 @@ GameObject:
   - component: {fileID: 8196822056393596888}
   - component: {fileID: 4559113195371433302}
   - component: {fileID: 2480153232823764294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}

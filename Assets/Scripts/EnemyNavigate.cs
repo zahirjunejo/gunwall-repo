@@ -14,14 +14,13 @@ public class EnemyNavigate : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Player")
+    {         
+        if(collision.gameObject.TryGetComponent<IDamageable>(out var hitTarget))
         {
             Instantiate(SuicideExplosion, transform.position, SuicideExplosion.transform.rotation);
             Destroy(gameObject);
-            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-            playerController.ReduceHealth(10);
-        }
+            hitTarget.TakeDamage(10);
+        }   
     }
 
     // Update is called once per frame
