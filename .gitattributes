@@ -1,3 +1,4 @@
+*.shader linguist-language=csharp
 /Assets/Textures/Texture_1_Diffuse.psd filter=lfs diff=lfs merge=lfs -text
 /Assets/Textures/Texture_2_Diffuse.psd filter=lfs diff=lfs merge=lfs -text
 /Assets/Textures/Texture_3_Diffuse.psd filter=lfs diff=lfs merge=lfs -text
