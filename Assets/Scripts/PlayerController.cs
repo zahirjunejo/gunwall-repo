@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         health = Mathf.Max(0, health - damage);
 
-        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / 100 * HealthBarWidth, HealthBarHeight);
+        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHealth * HealthBarWidth, HealthBarHeight);
         if (health <= 0)
         {
             Die();

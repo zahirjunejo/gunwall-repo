@@ -13,7 +13,7 @@ public class HealthBar
         _healthBarHeight = _healthbar.GetComponent<RectTransform>().sizeDelta.y;
     }
 
-    public void UpdateHealthBaar(float newHealth, float maxHealth)
+    public void UpdateHealthBar(float newHealth, float maxHealth)
     {
         _healthbar.GetComponent<RectTransform>().sizeDelta = new Vector2(newHealth / maxHealth * _healthBarWidth, _healthBarHeight);
     }
