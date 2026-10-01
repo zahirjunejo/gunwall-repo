@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
     private float health;
+    private HealthBar _healthBar;
     public GameObject MuzzleFlashEffect;
     public GameObject ImpactEffect;
     public GameObject raystart;

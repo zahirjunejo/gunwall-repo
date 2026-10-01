@@ -5,17 +5,19 @@ using UnityEngine;
 public class HealthBar
 {
     [SerializeField] private GameObject _healthbar;
+    private RectTransform  _healthbarRectTransform;
     private float _healthBarWidth, _healthBarHeight;
 
     public HealthBar()
     {
-        _healthBarWidth = _healthbar.GetComponent<RectTransform>().sizeDelta.x;
-        _healthBarHeight = _healthbar.GetComponent<RectTransform>().sizeDelta.y;
+        _healthbarRectTransform = _healthbar.GetComponent<RectTransform>();
+        _healthBarWidth = _healthbarRectTransform.sizeDelta.x;
+        _healthBarHeight = _healthbarRectTransform.sizeDelta.y;
     }
 
     public void UpdateHealthBar(float newHealth, float maxHealth)
     {
-        _healthbar.GetComponent<RectTransform>().sizeDelta = new Vector2(newHealth / maxHealth * _healthBarWidth, _healthBarHeight);
+        _healthbarRectTransform.sizeDelta = new Vector2(newHealth / maxHealth * _healthBarWidth, _healthBarHeight);
     }
 
     public void DeActivateHealthBar()
