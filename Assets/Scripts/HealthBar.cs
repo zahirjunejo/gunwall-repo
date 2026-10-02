@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class HealthBar
 {
-    [SerializeField] private GameObject _healthbar;
+    public GameObject _healthbar;
     private RectTransform  _healthbarRectTransform;
     private float _healthBarWidth, _healthBarHeight;
 
