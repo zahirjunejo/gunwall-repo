@@ -11,21 +11,19 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
     private float health;
-    //public HealthBar _healthBar;
+    private HealthBar _healthBar;
     public GameObject MuzzleFlashEffect;
     public GameObject ImpactEffect;
     public GameObject raystart;
     public GameObject playerBody;
     public GameObject gameManager;
-    public GameObject healthBar;
-    private float HealthBarWidth, HealthBarHeight;
+    public GameObject healthBarUI;
 
     public float CurrentHealth => health;
 
     public void Awake()
     {
         health = maxHealth;
-        //_healthBar = new HealthBar();
     }
 
     // Start is called before the first frame update
@@ -33,14 +31,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         anim = playerBody.GetComponent<Animator>();
         playerAudioSource = GetComponent<AudioSource>();
-
-        HealthBarWidth = healthBar.GetComponent<RectTransform>().sizeDelta.x;
-        HealthBarHeight = healthBar.GetComponent<RectTransform>().sizeDelta.y;
+        _healthBar = new HealthBar(healthBarUI);
     }
 
     public void Die()
     {
-        healthBar.SetActive(false);
+        _healthBar.DeActivateHealthBar();
         MuzzleFlashEffect.SetActive(false);
         if (playerAudioSource.isPlaying)
         {
@@ -120,7 +116,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         health = Mathf.Max(0, health - damage);
 
-        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHealth * HealthBarWidth, HealthBarHeight);
+        _healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
             Die();
