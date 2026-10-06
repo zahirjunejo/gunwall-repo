@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class HealthBar
 {
-    public GameObject _healthbar;
+    private GameObject _healthbar;
     private RectTransform  _healthbarRectTransform;
     private float _healthBarWidth, _healthBarHeight;
 
-    public HealthBar()
+    public HealthBar(GameObject healthbar)
     {
+        _healthbar = healthbar;
         _healthbarRectTransform = _healthbar.GetComponent<RectTransform>();
         _healthBarWidth = _healthbarRectTransform.sizeDelta.x;
         _healthBarHeight = _healthbarRectTransform.sizeDelta.y;
